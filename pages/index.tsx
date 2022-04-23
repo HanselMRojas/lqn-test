@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next';
-import Head from 'next/head';
+
 import Button from '@mui/material/Button';
+import Head from 'next/head';
 import Stack from '@mui/material/Stack';
+
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
@@ -21,8 +23,8 @@ const Home: NextPage = () => {
             <span>LQN Test</span>
           </figure>
           <Stack spacing={2} direction="row">
-            <Button variant="outlined" href="/tests/part-one">Part 1</Button>
-            <Button variant="outlined" href="/tests/part-one">Part 2</Button>
+            <Button variant="outlined" href="/tests/part-one">Parte 1</Button>
+            <Button variant="outlined" href="/tests/part-one">Parte 2</Button>
           </Stack>
         </section>
       </section>
