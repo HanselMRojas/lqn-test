@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import type { NextPage } from 'next';
+import type { NextPage } from 'next'
 
-import Button from '@mui/material/Button';
-import Head from 'next/head';
-import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button'
+import Head from 'next/head'
+import Stack from '@mui/material/Stack'
 
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
   return (
@@ -22,9 +22,14 @@ const Home: NextPage = () => {
             <img src="/static/logos/logo.svg" alt="SVG Logo" />
             <span>LQN Test</span>
           </figure>
+
           <Stack spacing={2} direction="row">
-            <Button variant="outlined" href="/tests/part-one">Parte 1</Button>
-            <Button variant="outlined" href="/tests/part-one">Parte 2</Button>
+            <Button variant="outlined" href="/tests/part-one">
+              Parte 1
+            </Button>
+            <Button variant="outlined" href="/tests/part-one">
+              Parte 2
+            </Button>
           </Stack>
         </section>
       </section>

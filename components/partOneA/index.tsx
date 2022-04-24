@@ -1,24 +1,21 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button'
+import Stack from '@mui/material/Stack'
 
-import {
-  createNumbers,
-  determineSolution,
-} from '../../utils/buzzBazz';
+import { createNumbers, determineSolution } from '../../utils/buzzBazz'
 
 const PartOneA = () => {
-  const base: string[] = [];
-  const [numbers, setNumbers] = useState(base);
+  const base: string[] = []
+  const [numbers, setNumbers] = useState(base)
 
-  const handleCleanNumbers = () => setNumbers([]);
+  const handleCleanNumbers = () => setNumbers([])
 
   const handleRunSolution = () => {
-    const numbers = createNumbers(100);
-    const payload = determineSolution(numbers);
-    setNumbers(payload);
-  };
+    const numbers = createNumbers(100)
+    const payload = determineSolution(numbers)
+    setNumbers(payload)
+  }
 
   return (
     <section>
@@ -43,11 +40,15 @@ const PartOneA = () => {
       </pre>
 
       <Stack spacing={2} direction="row">
-        <Button variant="contained" onClick={handleRunSolution}>Ejecutar</Button>
-        <Button variant="text" onClick={handleCleanNumbers}>Limpiar</Button>
+        <Button variant="contained" onClick={handleRunSolution}>
+          Ejecutar
+        </Button>
+        <Button variant="text" onClick={handleCleanNumbers}>
+          Limpiar
+        </Button>
       </Stack>
     </section>
-  );
-};
+  )
+}
 
-export default PartOneA;
+export default PartOneA

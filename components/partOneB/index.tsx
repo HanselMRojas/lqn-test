@@ -1,53 +1,66 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button'
+import Stack from '@mui/material/Stack'
 
-import {
-  createNumbers,
-  determineSolution,
-} from '../../utils/buzzBazz';
+import { SubsequentPokemonPayload, PokemonList, getSubsequentPokemonList } from '../../utils/pokemon'
 
 const PartOneA = () => {
-  const base: string[] = [];
-  const [numbers, setNumbers] = useState(base);
+  const base: SubsequentPokemonPayload = { list: [], pokeList: [] }
+  const [pokemons, setPokemons] = useState(base)
 
-  const handleCleanNumbers = () => setNumbers([]);
+  const handleCleanNumbers = () => setPokemons(base)
 
   const handleRunSolution = () => {
-    const numbers = createNumbers(100);
-    const payload = determineSolution(numbers);
-    setNumbers(payload);
-  };
+    const pokemons = getSubsequentPokemonList(PokemonList)
+    setPokemons(pokemons)
+  }
 
   return (
     <>
-      <h2>Problema</h2>
+      <h2>Problema (English)</h2>
       <p>
-        Desarrolla un algoritmo que imprima los números del 0 al 100.
-        Adicionalmente debe imprimirse en la misma línea la palabra buzz en caso
-        de que el número sea par. Sí el número es múltiplo de 5 debe imprimirse
-        en la misma línea la palabra bazz.
+        Your task in this exercise is as follows: Take the following selection
+        of 70 English Pokemon names (extracted from Wikipedia&apos;s list of
+        Pokemon), and generate the/a sequence with the highest possible number
+        of Pokemon names where the subsequent name starts with the final letter
+        of the preceding name. No Pokemon name is to be repeated.
       </p>
+
+
+      <h3>Pokemon List (Initial)</h3>
+      <pre>
+        <code>
+          {PokemonList.join(' ')}
+        </code>
+      </pre>
 
       <pre>
         <code>
-          {numbers.length === 0 ? (
+          {pokemons.list.length === 0 ? (
             <span>No hay datos</span>
           ) : (
             <>
-              <span>{numbers.join('\n')}</span>
+              {pokemons.list.map((pokemon: any, index: number) => (
+                <p key={index}>
+                  {pokemon.pokemon} [{pokemon.subsecuentList.length}]: {pokemon.subsecuentList.join(' => ')}
+                </p>
+              ))}
             </>
           )}
         </code>
       </pre>
 
       <Stack spacing={2} direction="row">
-        <Button variant="contained" onClick={handleRunSolution}>Ejecutar</Button>
-        <Button variant="text" onClick={handleCleanNumbers}>Limpiar</Button>
+        <Button variant="contained" onClick={handleRunSolution}>
+          Ejecutar
+        </Button>
+        <Button variant="text" onClick={handleCleanNumbers}>
+          Limpiar
+        </Button>
       </Stack>
     </>
-  );
-};
+  )
+}
 
-export default PartOneA;
+export default PartOneA
